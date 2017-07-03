@@ -89,25 +89,21 @@ def car(car_x, car_y):
 
 def cops(cop_x,cop_y):
 
-    # if cop_y > 0 and cop_y < height:
-    #     police_music.play(4)
-
     screen.blit(cop_car, [cop_x,cop_y])
 
-# def message():
-#     font = pygame.font.SysFont("Arial",50)
-#     text = font.render("Game Over",True,red)
-#     screen.blit(text,(250,100))
-
 def busted():
-    # font = pygame.font.SysFont("Arial",70)
-    # text = font.render("Busted",True,red)
-    # screen.blit(text,(250,400))
+
     screen.blit(busted_image, (250,250))
     pygame.display.update()
 
+def counter(c):
+    font = pygame.font.SysFont("Arcade",40)
+    text = font.render("Car Passed : "+ str(c),True,red)
+    screen.blit(text, (50,10))
 
 def main():
+
+    count = 0
 
     bg_y = 0
     move_bg = 20
@@ -172,6 +168,7 @@ def main():
 
         car(car_x,car_y)
         cops(cop_x,cop_y)
+        counter(count)
 
         if bg_y > height:
             bg_y = -height
@@ -180,32 +177,25 @@ def main():
         elif opp_y > height:
             opp_x = random.randint((width/2)-200,400)
             opp_y = -120
+            count += 1
         elif cop_y > height:
             cop_x = random.randint((width/2)-200,width-200)
             cop_y = -height
 
 
         if opp_rect.colliderect(my_rect):
-            # mainLoop = True
-            # opp_x = random.randint((width/2)-200,400)
-            # opp_y = -120
-            # message()
             gameOver()
 
         if cop_rect.colliderect(my_rect):
             car_hit = True
             move_car = +10
             busted()
-            # mainLoop = True
             gameOver()
         elif car_x > width-220:
             move_car = 0
-            # message()
             gameOver()
-            # mainLoop = True
 
         pygame.display.update()
         clock.tick(FPS)
 
-#main()
 gameIntro()
