@@ -1,1 +1,7 @@
-{'Name': 'Redmi', 'Price': '12000', 'Description': 'Note 4'}{'Name': 'Apple', 'Price': '45000', 'Description': 'Iphone'}{'Name': 'Samsung', 'Price': '34000', 'Description': 'Galaxy S5'}
+{'Name': 'Redmi', 'Price': '12000', 'Description': 'Note 4'}
+
+{'Name': 'Samsung', 'Price': '34000', 'Description': 'Galaxy S8'}
+
+{'Name': 'Apple', 'Price': 'Iphone', 'Description': '23000'}
+{'Name': 'Nokia', 'Price': '23000', 'Description': 'Nokia Lumia'}
+{'Name': 'Motorola', 'Price': '15000', 'Description': 'MotoG'}

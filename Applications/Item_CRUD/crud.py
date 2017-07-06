@@ -59,7 +59,7 @@ def sorting():
     pass
 
 def save():
-    file = open("Item_List.txt",'w')
+    file = open("Item_List.txt",'a')
     print("Writing Data....")
     # file.write(str(item_list))
     for data in item_list:
@@ -73,7 +73,7 @@ def load():
     data = file.readlines()
     for i in data:
         item_list.append(i)
-    item_list.append(file.readlines())
+    #item_list.append(file.readlines())
     read()
     file.close()
 
