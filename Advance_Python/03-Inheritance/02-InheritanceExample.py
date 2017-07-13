@@ -7,10 +7,14 @@ class Avengers:
     def eligible(self):
         if self.age < 35 or self.height > 6:
             print("Welcome to Avengers Team")
+            Avenger.selected_avengers(self)
         else:
             print("Too Old....")
 
+
 class Avenger(Avengers):
+
+    avengers_list = []
 
     def __init__(self,name,age,powers,skills,height):
         self.name = name
@@ -26,10 +30,14 @@ class Avenger(Avengers):
         print("Name : {}, Age : {}, Powers : {}, Skills : {}, Height : {}"
               .format(self.name,self.age,self.powers,self.skills,self.height))
 
+    def selected_avengers(self):
+        self.avengers_list.append([self.name,self.age,self.powers,self.skills,self.height])
+
+        for av in self.avengers_list:
+            print(av)
+
 
 while True:
-
-    avengers_list = []
 
     name = input("Enter your Name : ")
     age = int(input("Enter your age : "))
@@ -40,11 +48,6 @@ while True:
     obj = Avenger(name,age,power,skills,height)
     obj.print_avenger()
     obj.eligible()
-
-    avengers_list.append(obj)
-
-    for av in avengers_list:
-        print(av)
 
 
 
