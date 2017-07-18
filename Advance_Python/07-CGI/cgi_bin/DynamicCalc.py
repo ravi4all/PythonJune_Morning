@@ -7,7 +7,7 @@ form = cgi.FieldStorage()
 f_num = form.getvalue('f_num')
 s_num = form.getvalue('s_num')
 
-result = f_num + s_num
+result = int(f_num) + int(s_num)
 
 print('Content-type:text/html\r\n\r\n')
 
