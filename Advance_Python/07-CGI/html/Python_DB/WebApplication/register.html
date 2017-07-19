@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>Registration Form</h1>
+
+<form action="../../../cgi-bin/DB_Handling/02-Regsitration.py" method="post">
+    <table>
+        <tr>
+            <td>Enter Name</td>
+            <td><input type="text" required placeholder="Enter Name" name="u_name"/></td>
+        </tr>
+        <tr>
+            <td>Enter Email</td>
+            <td><input type="email" required placeholder="Enetr Email" name="u_mail"/></td>
+        </tr>
+        <tr>
+            <td>Enter Password</td>
+            <td><input type="password" required placeholder="Enter Password" name="u_pwd"/></td>
+        </tr>
+        <tr>
+            <td><input type="reset"/></td>
+            <td><input type="submit" value="Register"/></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
