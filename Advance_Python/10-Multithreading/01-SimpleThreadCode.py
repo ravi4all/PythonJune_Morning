@@ -1,4 +1,5 @@
 import threading
+# import _thread
 
 def worker(num):
     # print("Thread Running...",num)
@@ -15,7 +16,6 @@ for t in range(5):
     obj = threading.Thread(target=worker, args=(t,))
     threads.append(obj)
     obj.start()
-    worker("h")
     print_me()
     print(obj.getName())
     print(obj.isAlive())
