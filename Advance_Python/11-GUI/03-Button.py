@@ -1,0 +1,34 @@
+import sys
+from PyQt5 import QtWidgets, QtGui
+
+class Window(QtWidgets.QMainWindow):
+# class, inherit from QtGui.QMainWindow
+
+    def __init__(self):
+        # Self refrence the current class
+        super(Window, self).__init__()
+        # Super:- window returns the parent object, so that it acts like a QT object
+        self.a = 10
+        self.b = 20
+        self.c = None
+        self.setGeometry(50, 50, 500, 400)
+        self.setWindowTitle("PyQt")
+        self.setWindowIcon(QtGui.QIcon('icon.png'))
+        self.home()
+
+    def home(self):
+        btn = QtWidgets.QPushButton("Click Here", self)
+        btn.clicked.connect(self.close_window)
+        btn.resize(100, 100)
+        btn.move(100,100)
+        self.show()
+
+    def close_window(self):
+        self.c = self.a + self.b
+        print(self.c)
+        # sys.exit()
+
+
+app = QtWidgets.QApplication(sys.argv)
+GUI = Window()
+sys.exit(app.exec_())
