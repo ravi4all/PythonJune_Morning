@@ -1,21 +1,31 @@
 import speech_recognition as sr
-from pygame import mixer
-mixer.init()
 
-# Record Audio
+
+mic_name = "USB Device 0x46d:0x825: Audio (hw:1, 0)"
+sample_rate = 48000
+chunk_size = 2048
 r = sr.Recognizer()
-with sr.Microphone() as source:
-    print("Say something!")
+
+mic_list = sr.Microphone.list_microphone_names()
+device_id = None
+
+for i, microphone_name in enumerate(mic_list):
+    if microphone_name == mic_name:
+        device_id = i
+
+with sr.Microphone(device_index = device_id, sample_rate = sample_rate,
+                        chunk_size = chunk_size) as source:
+
+    r.adjust_for_ambient_noise(source)
+    print("Say Something")
     audio = r.listen(source)
- 
-# Speech recognition using Google Speech Recognition
-try:
-    # for testing purposes, we're just using the default API key
-    # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
-    # instead of `r.recognize_google(audio)`
-    # print("You said: " + r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY"))
-    print("You said: " + r.recognize_google(audio))
-except sr.UnknownValueError:
-    print("Google Speech Recognition could not understand audio")
-except sr.RequestError as e:
-    print("Could not request results from Google Speech Recognition service; {0}".format(e))
+
+    try:
+        text = r.recognize_google(audio)
+        print("you said: " + text)
+
+    except sr.UnknownValueError:
+        print("Google Speech Recognition could not understand audio")
+
+    except sr.RequestError as e:
+        print("Could not request results from Google Speech Recognition service; {0}".format(e))
