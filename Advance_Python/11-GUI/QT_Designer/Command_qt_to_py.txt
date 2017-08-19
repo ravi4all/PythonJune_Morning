@@ -1,0 +1,4 @@
+C:\Python36-32\Lib\site-packages\PyQt4\pyuic4.bat -x 01-SimpleGUI.ui -o 01-SimpleGUI.py
+
+
+python -m PyQt5.uic.pyuic -x 01-SimpleGUI.ui -o 01-SimpleGUI.py
