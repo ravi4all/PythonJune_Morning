@@ -6,7 +6,8 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
+from PyQt5.QtGui import QPixmap
 import sys
 
 class MainGame(QtWidgets.QMainWindow):
@@ -15,9 +16,9 @@ class MainGame(QtWidgets.QMainWindow):
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(867, 551)
+        Dialog.resize(1067, 551)
         self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(20, 160, 571, 111))
+        self.label.setGeometry(QtCore.QRect(20, 160, 871, 111))
         self.label.setStyleSheet("font: 26pt \"MS Shell Dlg 2\";")
         self.label.setObjectName("label")
         self.pushButton = QtWidgets.QPushButton(Dialog)
@@ -40,7 +41,6 @@ class MainGame(QtWidgets.QMainWindow):
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
-
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
@@ -49,7 +49,6 @@ class MainGame(QtWidgets.QMainWindow):
         self.pushButton_2.setText(_translate("Dialog", "Kejriwal"))
         self.pushButton_3.setText(_translate("Dialog", "Lalu"))
         self.pushButton_4.setText(_translate("Dialog", "Yogi"))
-
 
         self.ans_1 = [self.pushButton, self.pushButton_2, self.pushButton_3, self.pushButton_4]
 
@@ -102,23 +101,21 @@ class MainGame(QtWidgets.QMainWindow):
 
 # if __name__ == "__main__":
 #     import sys
-    # app = QtWidgets.QApplication(sys.argv)
-    # Dialog = QtWidgets.QDialog()
-    # ui = MainGame()
-    # ui.setupUi(Dialog)
-    # Dialog.show()
-    # sys.exit(app.exec_())
-
-
+#     app = QtWidgets.QApplication(sys.argv)
+#     Dialog = QtWidgets.QDialog()
+#     ui = MainGame()
+#     ui.setupUi(Dialog)
+#     Dialog.show()
+#     sys.exit(app.exec_())
 
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(865, 550)
+        Dialog.resize(1067, 550)
         self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(100, 70, 731, 161))
-        self.label.setStyleSheet("font: 48pt \"MS Shell Dlg 2\";")
+        self.label.setGeometry(QtCore.QRect(100, 70, 931, 161))
+        self.label.setStyleSheet("font: 38pt \"MS Shell Dlg 2\";")
         self.label.setObjectName("label")
         self.pushButton = QtWidgets.QPushButton(Dialog)
         self.pushButton.setGeometry(QtCore.QRect(100, 300, 191, 101))
@@ -140,47 +137,15 @@ class Ui_Dialog(object):
         self.pushButton.clicked.connect(self.startGame)
         self.pushButton_2.setText(_translate("Dialog", "Exit"))
 
-
     def startGame(self):
-        app = QtWidgets.QApplication(sys.argv)
-        Dialog = QtWidgets.QDialog()
+
         game = MainGame()
         game.setupUi(Dialog)
-        Dialog.show()
-        sys.exit(app.exec_())
 
-
-# if __name__ == "__main__":
-#     app = QtWidgets.QApplication(sys.argv)
-#     Dialog = QtWidgets.QDialog()
-#     ui = Ui_Dialog()
-#     ui.setupUi(Dialog)
-#     Dialog.show()
-#     sys.exit(app.exec_())
-
-app = QtWidgets.QApplication(sys.argv)
-Dialog = QtWidgets.QDialog()
-ui = Ui_Dialog()
-ui.setupUi(Dialog)
-Dialog.show()
-sys.exit(app.exec_())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    Dialog = QtWidgets.QDialog()
+    ui = Ui_Dialog()
+    ui.setupUi(Dialog)
+    Dialog.show()
+    sys.exit(app.exec_())
